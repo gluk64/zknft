@@ -1,0 +1,52 @@
+<div class="header">
+
+  <div class="left-aligned">
+    <div routerLink="/" class="logo-wrapper">
+      <img class="logo" src="../assets/zknft-logo.png">
+    </div>
+  </div>
+
+  <div class="right-aligned">
+    <div class="button-menu">
+      <button routerLink="/mint"><span class="grayscale">🖌️</span> Mint NFT</button>
+      <button routerLink="/collection"><span class="grayscale">🖼️</span> My NFTs</button>
+      <button (click)="connectWallet()" class="connect-button">
+        <div *ngIf="wallet.connected">
+          {{wallet.userAddress.substring(0, 14)}}
+        </div>
+        <div *ngIf="!wallet.connected">
+          <span class="grayscale">🏦</span> Connect Wallet
+        </div>
+      </button>
+      <button routerLink="/wallet" *ngIf="wallet.connected"><span class="grayscale">👛</span> L2 Portal</button>
+    </div>
+    <div class="eth-balance">
+      L2 Balance: {{l2EthBalance.toFormat(5)}} ETH &nbsp;
+    </div>
+  </div>
+  
+</div>
+
+<div class="modal" *ngIf="noFunds">
+  <div class="card">
+    <div class="right-aligned"><button (click)="dismissNoFunds()">x</button></div>
+    <div class="card-header">Fund Your zkSync Account</div>
+    <div class="card-text">You don't have any funds yet on zkSync! To get started, deposit some ETH into your Layer 2 account. You can also use the <a href="https://wallet.zksync.io/">zkSync Wallet</a> to manage your Layer 2 funds. </div>
+    <div class="centered">
+      <div><input type="text" class="eth-input" placeholder="0.01" [(ngModel)]="depositAmount"></div>
+      <div class="eth-balance">L1 Balance: {{l1EthBalance.toFormat(5)}} ETH</div>
+      <div><button class="deposit-button" (click)="depositETH()">Deposit ETH</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="notActivated">
+  <div class="card">
+    <div class="right-aligned"><button (click)="dismissNotActivated()">x</button></div>
+    <div class="card-header">Activate Your zkSync Account</div>
+    <div class="card-text">In order to control your assets on zkSync, there is a one-time transaction to register your address.</div>
+    <div class="centered">
+      <div><button class="deposit-button" (click)="setSigningKey()">Activate</button></div>
+    </div>
+  </div>
+</div>

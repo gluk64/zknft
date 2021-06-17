@@ -1,0 +1,40 @@
+.card {
+  background-color: var(--light-gray-3);
+  padding: 0.75rem 0.5rem;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 0.5rem var(--light-gray-2));
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  line-height: 150%;
+}
+
+.deposit-button, .withdraw-button {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.deposit-button {
+  background-color: var(--gray);
+  color: var(--light-gray-3);
+}
+.deposit-button:hover {
+  background-color: black;
+}
+
+.withdraw-button {
+  background-color: var(--light-gray);
+  color: black;
+}
+.withdraw-button:hover {
+  background-color: var(--light-gray-2);
+}
+
+.eth-balance {
+  padding: 0.5rem 0rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+  cursor: pointer;
+}

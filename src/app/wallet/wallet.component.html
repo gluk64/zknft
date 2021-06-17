@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="title">Bridge Funds</div>
+  <div class="two-cols">
+    <div class="card">
+      <div class="sub-title">L1 → L2</div>
+      <div class="eth-balance" (click)="setDepositAmount()">L1 Balance: {{l1EthBalance.toFormat(8)}} ETH</div>
+      <div>
+        <input type="text" [(ngModel)]="depositAmount" placeholder="0.01">
+      </div>
+      <div>
+        <button class="deposit-button" (click)="depositETH()">Deposit To zkSync</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="sub-title">L2 → L1</div>
+      <div class="eth-balance" (click)="setWithdrawAmount()">L2 Balance: {{l2EthBalance.toFormat(8)}} ETH</div>
+      <div>
+        <input type="text" [(ngModel)]="withdrawAmount" placeholder="0.01">
+      </div>
+      <div>
+        <button class="withdraw-button" (click)="withdrawETH()">Withdraw From zkSync</button>
+      </div>
+    </div>
+  </div>
+</div>

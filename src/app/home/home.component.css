@@ -1,0 +1,46 @@
+.hero {
+  background-color: black;
+  color: white;
+  padding: 1rem 1rem;
+}
+
+.hero-wrapper {
+  max-width: 50rem;
+  margin: auto;
+}
+
+.logo-title {
+  font-weight: bolder;
+  font-size: 6rem;
+}
+
+.powered-tagline {
+  margin-left: 10rem;
+  color: var(--light-gray);
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.zksync-logo {
+  width: 5rem;
+  height: auto;
+}
+
+.sub-title {
+  background-color: black;
+  padding: 0.5rem 0.5rem;
+  font-size: 3rem;
+  color: white;
+  border-radius: 4px;
+}
+
+.desc {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  background-color: var(--light-gray-3);
+  padding: 0.75rem 0.5rem;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 0.5rem var(--light-gray-2));
+  line-height: 170%;
+}

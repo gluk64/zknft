@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="title name">{{nft.name}}</div>
+  
+  <div class="two-cols">
+    <div><img src="{{nft.image}}" class="nft-image"></div>
+    <div>
+      <div class="description">{{nft.description}}</div>
+      <div *ngIf="hasExternalLink" class="external-link-holder">
+        <a href="{{nftData.external_url}}"><button class="external-link">External Link &nbsp; <svg _ngcontent-hoa-c42="" class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850"><path _ngcontent-hoa-c42="" d="M1438 819v320q0 119-84 203-85 85-204 85H318q-119 0-203-85-85-84-85-203V307q0-119 85-204 84-84 203-84h704q14 0 23 9t9 23v64q0 14-9 23t-23 9H318q-66 0-113 47t-47 113v832q0 66 47 113t113 47h832q66 0 113-47t47-113V819q0-14 9-23t23-9h64q14 0 23 9t9 23zm384-864v512q0 26-19 45t-45 19q-26 0-45-19l-176-176-652 652q-10 10-23 10t-23-10L725 874q-10-10-10-23t10-23l652-652L1201 0q-19-19-19-45t19-45q19-19 45-19h512q26 0 45 19t19 45z" fill="currentColor"></path></svg></button></a>
+      </div>
+      <div class="button-bar">
+        <button *ngIf="isOwner">Transfer</button> <button (click)="openOfferModal()">Make NFT Offer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stats-title">NFT Information</div>
+    <div (click)="copy(nft.id)" class="clickable">ID: {{nft.id}}</div>
+    <div (click)="copy(nft.address)" class="clickable">Address: {{nft.address}}</div>
+    <div (click)="copy(nft.creatorAddress)" class="clickable">Creator: {{nft.creatorAddress}}</div>
+    <div (click)="copy(nft.contentHash)" class="clickable">Content Hash: {{nft.contentHash}}</div>
+  </div>
+
+  <div *ngIf="isOwner" class="transfer-holder clickable">
+    <div class="sub-title" (click)="toggleShowTransfer()"><span class="grayscale">📬</span> Transfer NFT</div>
+    <div *ngIf="showTransfer">
+      <div>Address</div>
+      <input type="text" [(ngModel)]="recipientAddress" class="transfer-form" placeholder="0x75d4bdBf6593ed463e9625694272a0FF9a6D346F"><button (click)="transfer()" class="transfer-button">Transfer</button>
+    </div>
+  </div>
+  
+
+  <div>
+    <div class="sub-title">Swap Offers</div>
+  </div>
+  
+</div>
+
+<div class="modal" *ngIf="showOfferModal">
+  <div>Select NFT To Offer</div>
+  <div class="collection">
+    <div class="right-aligned"><button (click)="closeOfferModal()">x</button></div>
+    <div class="collection-item-holder">
+      <div *ngFor="let n of ownedNftList" (click)="setSelectedNftId(n.id)" class="collection-item">
+        <div>{{n.id}}</div>
+        <div class="collection-item-name">{{n.name}}</div>
+        <div><img src="{{n.image}}" class="collection-item-image"></div>
+      </div>
+    </div>
+  </div>
+  <div class="centered"><button (click)="offerNft()">Select</button></div>
+</div>

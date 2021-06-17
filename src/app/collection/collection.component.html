@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="title">My NFTs</div>
+</div>
+
+<div class="nft-holder">
+  <div *ngFor="let n of nftList" routerLink="/view/{{n.id}}" class="nft-item">
+    <div>{{n.id}}</div>
+    <!-- <div>{{n.symbol}}</div>
+    <div>{{n.serialId}}</div>
+    <div>{{n.address}}</div>
+    <div>{{n.creatorAddress}}</div>
+    <div>{{n.contentHash}}</div> -->
+    <div class="nft-name">{{n.name}}</div>
+    <div class="nft-image"><img src="{{n.image}}" class="nft-image"></div>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+.nft-image {
+  margin-top: 1.5rem;
+  max-height: 20rem;
+  max-width: 100%;
+  border: 1px solid var(--light-gray-2);
+  border-radius: 6px;
+}
+
+.description {
+  margin-top: 1.5rem;
+  background-color: var(--light-gray-2);
+  padding: 0.75rem 0.5rem;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 0.5rem var(--light-gray-2));
+  margin-bottom: 0.5rem;
+}
+
+.stats-title {
+  font-family: Inter;
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+.stats {
+  border-top: 1px solid var(--gray);
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+}
+.stats > div {
+  word-break: break-all;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.2rem;
+}
+
+.external-link-holder {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;;
+}
+.external-link {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: var(--light-gray-2);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--gray);
+  font-weight: bold;
+  border-radius: 6px;
+}
+.external-link:hover {
+  background-color: black;
+  color: white;
+}
+.external-link-icon {
+  width: 0.5rem;
+  height: auto;
+  color: white;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  color: black;
+  background-color: var(--light-gray-3);
+}
+
+.transfer-holder {
+  border-top: 1px solid var(--gray);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.sub-title {
+  font-weight: bolder;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+  background-color: var(--light-gray-2);
+}
+
+.transfer-title:hover {
+  background-color: var(--light-gray-3);
+}
+
+.transfer-form {
+  font-size: 0.85rem;
+  width: 15rem;
+}
+
+.transfer-button {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: var(--light-gray-2);
+  background-color: var(--teal);
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.transfer-button:hover {
+  background-color: var(--dark-teal);
+  color: white;
+}
+
+.nft-holder {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 60rem;
+  max-width: 100%;
+  align-items: center;
+}
+
+.modal {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
+}
+
+.collection {
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 1rem;
+}
+
+.collection-item-holder {
+  display: flex;
+}
+
+.collection-item {
+  width: 15rem;
+  height: 15rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.collection-item-image {
+  width: 10rem;
+  height: auto;
+  margin: auto;
+}
