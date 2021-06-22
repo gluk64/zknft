@@ -1,3 +1,17 @@
+.header {
+  font-family: Montserrat;
+  font-size: 5rem;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.header-img {
+  max-width: 20rem;
+}
+
 .instructions {
   color: var(--gray);
   margin-top: 1rem;

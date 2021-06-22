@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { CollectionComponent } from './collection/collection.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ExploreComponent } from './explore/explore.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     ViewComponent,
     CollectionComponent,
     WalletComponent,
+    ExploreComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,23 @@
-.header {
+.header-wrapper {
   background-image: linear-gradient(var(--dark-gray), black); 
-  padding: 0.5rem 0.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
-.logo {
-  width: 3rem;
-  height: auto;
+.header {
+  padding: 1.5rem 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.logo-wrapper {
+  text-align: center;
+}
+
+.title-logo {
+  color: white;
+  font-weight: bolder;
+  font-size: 2rem;
+  font-family: Montserrat;
   cursor: pointer;
-  padding: 0.5rem 0.5rem;
 }
 
 .eth-balance {
@@ -19,20 +27,47 @@
   font-size: 0.9rem;
 }
 
-button {
+.connect-button {
   font-size: 1.1rem;
   margin: 0.5rem 0.5rem;
   color: var(--light-gray);
   background-color: var(--dark-gray);
-  border: 1px solid var(--gray);
+  border: 2px solid var(--gray-1);
   font-weight: bold;
   border-radius: 6px;
 }
 
-button:hover {
-  border: 1px solid var(--gray-1);
+.connect-button:hover {
+  border: 2px solid var(--gray-2);
   color: white;
   background-color: black;
+}
+
+.nav-menu {
+  margin-top: -4rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: Montserrat;
+  line-height: 200%;
+  justify-content: center;
+}
+
+.menu-link {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 1.1rem;
+  color: var(--gray-2);
+  cursor: pointer;
+  margin-left: 5rem;
+  font-weight: bolder;
+}
+
+.menu-link:hover {
+  color: var(--light-gray-3);
+}
+
+.menu-link:hover > .grayscale {
+  filter: sepia(1) saturate(100) hue-rotate(90deg) brightness(120%);
 }
 
 .modal {
@@ -87,9 +122,27 @@ button:hover {
   border-radius: 6px;
 }
 
+@media only screen and (max-width: 1224px) {
+  .nav-menu{
+    margin-top: -1rem;  
+  }
+}
+
 @media only screen and (max-width: 768px) {
-  .header, .right-aligned {
+  .header {
     display: block;
+  }
+  .wallet-holder {
+    margin-top: 2rem;
     text-align: center;
+  }
+  .eth-balance {
+    text-align: center;
+  }
+  .nav-menu {
+    margin-top: unset;
+  }
+  .menu-link {
+    margin-left: 1rem;
   }
 }

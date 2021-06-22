@@ -65,9 +65,22 @@ export class ViewComponent implements OnInit {
 
     // Load swap offers from server
     let tradeEndpoint = this.credentials.TRADE_SERVER + 'assets/' + this.nftId;
-    this.swapOffers = await fetch(tradeEndpoint, {
+    let response = await fetch(tradeEndpoint, {
       method: 'GET'
     });
+    this.swapOffers = await response.json();
+
+    // Get NFT data for each offer if applicable
+    // Otherwise populate with blank object
+    for (let o of this.swapOffers) {
+      let id = parseInt(o.data.tokenSell);
+      if (id !== NaN) {
+        o["assetData"] = this.nftDataService.getData(id);
+      }
+      else {
+        o["assetData"] = {};
+      }
+    }
   }
 
   async transfer() {
@@ -118,15 +131,26 @@ export class ViewComponent implements OnInit {
     this.showOfferModal = false;
   }
 
-  async accept() {
-    // const swap = await this.wallet.syncWallet.syncSwap({
-    //   orders: [
-    //   ],
-    //   feeToken: 'ETH'
-    // });
-    // this.wallet.showToast(`
-    // Your transaction was submitted! Track it <a href="${this.constants.ZK_EXPLORER + swap.txHash.substring(8,)}" target="_blank">here</a>.
-    // `);
+  async accept(order) {
+    let order1 = order.data;
+    let order2 = await this.wallet.syncWallet.getOrder({
+      tokenSell: parseInt(this.nftId),
+      tokenBuy: parseInt(order.data.tokenSell),
+      amount: 1,
+      ratio: zkUtils.tokenRatio({
+          [parseInt(order.data.tokenSell)]: 1,
+          [parseInt(this.nftId)]: 1
+      })
+    });
+    const swap = await this.wallet.syncWallet.syncSwap({
+      orders: [
+        order1, order2
+      ],
+      feeToken: 'ETH'
+    });
+    this.wallet.showToast(`
+    Your transaction was submitted! Track it <a href="${this.constants.ZK_EXPLORER + swap.txHash.substring(8,)}" target="_blank">here</a>.
+    `);
   }
 
   copy(s) {

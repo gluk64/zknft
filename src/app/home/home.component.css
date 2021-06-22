@@ -1,46 +1,143 @@
-.hero {
+.home {
   background-color: black;
-  color: white;
-  padding: 1rem 1rem;
+  padding-bottom: 2rem;
 }
 
-.hero-wrapper {
-  max-width: 50rem;
+.hero {
+  padding-top: 1rem;
+  max-width: 70rem;
   margin: auto;
 }
 
-.logo-title {
-  font-weight: bolder;
-  font-size: 6rem;
+.tagline {
+  margin-left: 5rem;
+  line-height: 200%;
+  font-family: Inter;
+  font-size: 4rem;
+  color: white;
 }
 
-.powered-tagline {
-  margin-left: 10rem;
+.smaller-tagline {
+  margin-top: 1.5rem;
+  line-height: 150%;
+  font-size: 1.5rem;
   color: var(--light-gray);
-  display: flex;
-  align-items: center;
-  font-weight: bold;
 }
 
-.zksync-logo {
-  width: 5rem;
+.two-columns {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.main-img {
+  margin-top: -2rem;
+  width: 100%;
+  max-width: 40rem;
+  height: auto;
+  z-index: 10;
+  position: relative;
+}
+
+.get-started-holder {
+  margin-top: 0rem;
+}
+
+.get-started {
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  letter-spacing: 0.075em;
+  padding: .8em 1em;
+  text-transform: uppercase;
+  border: 3px var(--blue) solid;
+  border-image: linear-gradient(45deg, var(--light-teal) 0%, var(--dark-teal) 100%);
+  border-image-slice: 1 1 1 1;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+}
+
+.get-started:hover {
+  color: var(--light-gray-2);
+  background-color: var(--dark-gray);
+}
+
+.tri-cols {
+  margin-top: -9rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  border-radius: 20px;
+  padding: 1rem 1rem;
+  margin: 4rem 4rem;
+  text-align: center;
+  border: 2px solid var(--gray);
+}
+
+.card-text {
+  text-align: unset;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  color: var(--gray-2);
+  line-height: 160%;
+}
+
+.icon {
+  width: 16rem;
   height: auto;
 }
 
-.sub-title {
-  background-color: black;
-  padding: 0.5rem 0.5rem;
-  font-size: 3rem;
-  color: white;
-  border-radius: 4px;
+.mint {
+  background-color: var(--dark-gray);
 }
 
-.desc {
-  font-size: 1.3rem;
-  margin-top: 1.5rem;
-  background-color: var(--light-gray-3);
-  padding: 0.75rem 0.5rem;
-  border-radius: 2px;
-  filter: drop-shadow(0 0 0.5rem var(--light-gray-2));
-  line-height: 170%;
+.view {
+  background-color: var(--dark-gray);
 }
+
+.swap {
+  background-color: var(--dark-gray);
+}
+
+.card-title {
+  font-size: 3rem;
+  font-weight: bolder;
+  color: white;
+  font-family: Montserrat;
+  letter-spacing: 0.2rem;
+}
+
+@media only screen and (max-width: 1500px) {
+  .two-columnss {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tri-cols {
+    margin-top: 0rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .tri-cols {
+    display: block;
+    margin-top: -5rem;
+  }
+  .main-img {
+    margin-top: -1rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .two-columns {
+    display: block;
+  }
+  .main-img {
+    margin: auto;
+    width: 75%;
+  }
+  .tagline {
+    margin-left: 1rem;
+  }
+}
+

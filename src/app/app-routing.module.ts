@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CollectionComponent } from './collection/collection.component';
+import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
 import { MintComponent } from './mint/mint.component';
 import { ViewComponent } from './view/view.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
     component: MintComponent
   },
   {
-    path: 'collection',
+    path: 'collection/:address',
     component: CollectionComponent
   },
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'wallet',
     component: WalletComponent
+  },
+  {
+    path: 'explore',
+    component: ExploreComponent
   }
 ];
 

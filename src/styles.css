@@ -9,6 +9,8 @@
   --light-teal: rgb(84, 233, 233);
   --teal: rgb(0, 128, 128);
   --dark-teal: rgb(8, 80, 80);
+  --blue: #00bcdd;
+  --pink: #ff00ff;
 }
 
 a {
@@ -19,6 +21,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
+  background-color: black;
 }
 
 /* Keep pixelation by default for images*/
@@ -53,12 +56,10 @@ button:hover {
 
 .container {
   margin: auto;
-  width: 50rem;
   padding-left: 5rem;
   padding-right: 5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  max-width: 100%;
 }
 
 .title {
@@ -88,8 +89,8 @@ button:hover {
 
 @media only screen and (max-width: 768px) {
   .container {
-    padding-left: 0.5rem;
-    padding-right: 0rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .two-cols {
     display: block;
