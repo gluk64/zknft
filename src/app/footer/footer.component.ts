@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantsService } from '../constants.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  zkscan: any;
+  zkwallet: any;
+
+  constructor(constants: ConstantsService) {
+    this.zkscan = constants.ZK_EXPLORER;
+    this.zkwallet = constants.ZK_WALLET;
+   }
 
   ngOnInit(): void {
   }

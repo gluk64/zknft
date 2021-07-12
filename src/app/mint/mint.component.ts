@@ -3,6 +3,8 @@ import { WalletService } from '../wallet.service';
 import { UtilsService } from "../utils.service";
 import { ConstantsService } from "../constants.service";
 import { CredentialsService } from '../credentials.service';
+import { DomSanitizer} from '@angular/platform-browser';
+import { NFTStorage } from 'nft.storage';
 const pinataSDK = require('@pinata/sdk');
 
 @Component({
@@ -13,26 +15,26 @@ const pinataSDK = require('@pinata/sdk');
 export class MintComponent implements OnInit {
 
   pinata: any;
+  nftStorageClient: NFTStorage;
 
   name: any;
   description: any;
   image: any;
+  imageURL: any;
+  notUpload: boolean;
   externalURL: any;
   recipientAddress: any;
 
   isLoading: any;
   loadingMessage: any;
 
-  constructor(public wallet:WalletService, public utils: UtilsService, public constants: ConstantsService, public credentials: CredentialsService) { }
+  constructor(public wallet:WalletService, public utils: UtilsService, public constants: ConstantsService, public credentials: CredentialsService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.image = "";
+    this.imageURL = "../assets/placeholder.svg";
     this.pinata = pinataSDK(this.credentials.PINATA_KEY, this.credentials.PINATA_SECRET);
+    this.nftStorageClient = new NFTStorage({token: this.credentials.NFTSTORAGE_KEY});
     this.isLoading = false;
-  }
-
-  isPlaceholder() {
-    return this.image === "";
   }
 
   async mintNFT() {
@@ -52,7 +54,8 @@ export class MintComponent implements OnInit {
       }
     }
 
-    this.loadingMessage = "Uploading Data..."
+    this.loadingMessage = "Uploading Data...";
+    
     const body = {
       "name": this.name,
       "image": this.image,
@@ -61,6 +64,7 @@ export class MintComponent implements OnInit {
     }
     let results = await this.pinata.pinJSONToIPFS(body);
     let ipfsHash = results["IpfsHash"];
+
     let contentHash = this.utils.buf2hex(this.utils.fromB58(ipfsHash, this.constants.MAP)).substring(4,);
     this.loadingMessage = "Minting NFT..."
     let mintTx = await this.wallet.syncWallet.mintNFT({
@@ -72,6 +76,13 @@ export class MintComponent implements OnInit {
     Your transaction was submitted! Track it <a href="${this.constants.ZK_EXPLORER + mintTx.txHash.substring(8,)}" target="_blank">here</a>.
     `);
     this.isLoading = false;
+  }
+
+  async uploadImage(files) {
+    let file = files.item(0);
+    let ipfasHash = await this.nftStorageClient.storeBlob(file);
+    this.image = this.constants.IPFS_GATEWAY + ipfasHash;
+    this.imageURL = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(file));
   }
 
 }

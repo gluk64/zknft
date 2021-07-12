@@ -22,7 +22,7 @@ export class ViewComponent implements OnInit {
   hasExternalLink: boolean;
   showTransfer: boolean;
   
-  selectednftId: any;
+  selectedNftId: any;
   ownedNftList: any;
   showOfferModal: boolean;
 
@@ -32,7 +32,7 @@ export class ViewComponent implements OnInit {
     this.isOwner = false;
     this.nft = {
       "name": "...",
-      "image": "https://i.imgur.com/nwZRdjr.png",
+      "image": "../assets/placeholder.svg",
       "description": "..."
     };
     this.hasExternalLink = false;
@@ -97,11 +97,11 @@ export class ViewComponent implements OnInit {
 
   async offerNft() {
     const order = await this.wallet.syncWallet.getOrder({
-      tokenSell: parseInt(this.selectednftId),
+      tokenSell: parseInt(this.selectedNftId),
       tokenBuy: parseInt(this.nftId),
       amount: 1,
       ratio: zkUtils.tokenRatio({
-          [parseInt(this.selectednftId)]: 1,
+          [parseInt(this.selectedNftId)]: 1,
           [parseInt(this.nftId)]: 1
       })
     });
@@ -114,6 +114,7 @@ export class ViewComponent implements OnInit {
       mode: 'cors',
       body: JSON.stringify(order)
     });
+    this.closeOfferModal();
   }
 
   async openOfferModal() {
@@ -177,6 +178,6 @@ export class ViewComponent implements OnInit {
   }
 
   setSelectedNftId(id) {
-    this.selectednftId = id;
+    this.selectedNftId = id;
   }
 }

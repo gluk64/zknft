@@ -139,5 +139,8 @@
   .tagline {
     margin-left: 1rem;
   }
+  .card {
+    margin: 2rem;
+  }
 }
 

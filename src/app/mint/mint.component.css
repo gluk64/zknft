@@ -13,9 +13,14 @@
 }
 
 .instructions {
-  color: var(--gray);
-  margin-top: 1rem;
-  font-size: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  line-height: 150%;
+  color: var(--light-gray);
 }
 
 .form {
@@ -23,7 +28,7 @@
   background-color: var(--light-gray-3);
   padding: 0.75rem 0.5rem;
   border-radius: 2px;
-  filter: drop-shadow(0 0 0.5rem var(--light-gray-2));
+  filter: drop-shadow(0 0 0.5rem var(--light-gray));
 }
 
 .form-title {
@@ -36,10 +41,11 @@
   color: var(--dark-gray);
   display: flex;
   align-items: center;
+  font-family: Inter;
 }
 
 .helper-text {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   color: var(--gray);
   padding: 0.4rem 0;
 }
@@ -77,14 +83,13 @@ input:focus, textarea:focus {
 .mint-button {
   font-size: 1.35rem;
   font-weight: bold;
-  color: white;
-  background-color: var(--teal);
-  outline: none;
+  color: var(--light-gray);
+  background-color: var(--dark-gray);
+  border: 2px solid var(--gray-1);
   margin-top: 1rem;
 }
 .mint-button:hover {
-  background-color: var(--dark-teal);
-  filter: drop-shadow(0.2rem 0.2rem 0.25rem var(--light-gray-2));
+  color: white;
 }
 
 .load-holder {

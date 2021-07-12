@@ -67,7 +67,7 @@
 }
 
 .menu-link:hover > .grayscale {
-  filter: sepia(1) saturate(100) hue-rotate(90deg) brightness(120%);
+  filter: sepia(1) saturate(100) hue-rotate(90deg) brightness(180%);
 }
 
 .modal {

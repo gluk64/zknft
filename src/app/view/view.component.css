@@ -1,3 +1,19 @@
+button {
+  font-size: 1.1rem;
+  margin: 0.5rem 0.5rem;
+  color: var(--light-gray);
+  background-color: var(--dark-gray);
+  border: 2px solid var(--gray-1);
+  font-weight: bold;
+  border-radius: 6px;
+}
+button:hover {
+  border: 2px solid var(--gray-2);
+  color: white;
+  background-color: black;
+}
+
+
 .nft-image {
   margin-top: 1.5rem;
   max-height: 20rem;
@@ -11,21 +27,20 @@
   background-color: var(--light-gray-2);
   padding: 0.75rem 0.5rem;
   border-radius: 2px;
-  filter: drop-shadow(0 0 0.5rem var(--light-gray-2));
+  filter: drop-shadow(0 0 0.5rem var(--gray-1));
   margin-bottom: 0.5rem;
 }
 
 .stats-title {
   font-family: Inter;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bolder;
 }
 
 .stats {
-  border-top: 1px solid var(--gray);
-  padding-top: 0.5rem;
+  color: var(--light-gray-2);
+  padding-top: 1.5rem;
   font-size: 0.85rem;
-  color: var(--dark-gray);
   margin-bottom: 0.5rem;
 }
 .stats > div {
@@ -60,15 +75,9 @@
 .clickable {
   cursor: pointer;
 }
-.clickable:hover {
+.white-on-hover:hover {
   color: black;
   background-color: var(--light-gray-3);
-}
-
-.transfer-holder {
-  border-top: 1px solid var(--gray);
-  padding-top: 1rem;
-  font-size: 0.85rem;
 }
 
 .sub-title {
@@ -78,27 +87,9 @@
   background-color: var(--light-gray-2);
 }
 
-.transfer-title:hover {
-  background-color: var(--light-gray-3);
-}
-
 .transfer-form {
   font-size: 0.85rem;
   width: 15rem;
-}
-
-.transfer-button {
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-  color: var(--light-gray-2);
-  background-color: var(--teal);
-  font-weight: bold;
-  border-radius: 6px;
-}
-
-.transfer-button:hover {
-  background-color: var(--dark-teal);
-  color: white;
 }
 
 .nft-holder {
@@ -117,14 +108,24 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 2;
+  color: var(--light-gray-2);
 }
 
 .collection {
+  margin-top: 2rem;
   max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
+  background-color: black;
   padding: 1rem;
+  border: 1px solid var(--dark-gray);
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 2rem;
 }
 
 .collection-item-holder {
@@ -135,6 +136,7 @@
   width: 15rem;
   height: 15rem;
   padding: 1rem;
+  margin: 1rem;
   cursor: pointer;
 }
 
@@ -142,4 +144,8 @@
   width: 10rem;
   height: auto;
   margin: auto;
+}
+
+.selected {
+  border: 2px solid var(--light-gray);
 }

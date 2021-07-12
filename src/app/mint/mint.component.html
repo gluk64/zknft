@@ -8,9 +8,7 @@
     </div>
   </div>
 
-  <div class="title">Mint NFT</div>
-
-  <div class="instructions">This will mint an NFT directly onto zkSync's L2. Fill in your NFT's information, and then click the Mint NFT button. It will then prompt you to sign a message with your wallet, and then mint your NFT.</div>
+  <div class="instructions">This will mint an NFT directly onto zkSync's L2! Note NFTs on zkSync are a little different from Ethereum mainnet. (More details <a href="" target="_blank">here</a>). <b>The biggest difference for you as an end user is that you will have to wait a few hours before you can transfer your zkNFT.</b></div>
 
   <div class="form">
     <div class="form-title">Name</div>
@@ -19,14 +17,11 @@
   </div>
 
   <div class="form">
-    <div class="form-title">Image URL</div>
-    <div class="helper-text">An external link to an image for your NFT.</div>
-    <input type="text" [(ngModel)]="image" placeholder="example.com/example.png">
-    <div class="preview-image-holder" *ngIf="!isPlaceholder()">
-      <img class="preview-image" src="{{image}}">
-    </div>
-    <div class="preview-image-holder" *ngIf="isPlaceholder()">
-      <img class="preview-image" src="https://i.imgur.com/nwZRdjr.png">
+    <div class="form-title">Upload Image</div>
+    <div class="helper-text">An image for your NFT.</div>
+    <input type="file" accept="image/*" (change)="uploadImage($event.target.files)">
+    <div class="preview-image-holder">
+      <img class="preview-image" [src]="imageURL">
     </div>
   </div>
 
@@ -39,7 +34,7 @@
   <div class="form">
     <div class="form-title">External URL</div>
     <div class="helper-text">An external link related to your NFT.</div>
-    <input type="text" [(ngModel)]="externalURL" placeholder="example.com">
+    <input type="text" [(ngModel)]="externalURL" placeholder="https://example.com">
   </div>
 
   <div *ngIf="isLoading" class="load-holder">

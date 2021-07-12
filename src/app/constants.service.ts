@@ -10,4 +10,5 @@ export class ConstantsService {
   IPFS_GATEWAY = "https://ipfs.io/ipfs/";
   ZK_EXPLORER = "https://ropsten.zkscan.io/explorer/transactions/";
   ETH_EXPLORER = "https://ropsten.etherscan.io/tx/";
+  ZK_WALLET = "https://wallet.zksync.io/";
 }

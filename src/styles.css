@@ -60,15 +60,15 @@ button:hover {
   padding-right: 5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  max-width: 60rem;
 }
 
 .title {
+  margin-top: 2rem; 
   font-size: 3rem;
   font-weight: bolder;
   color: white;
-  background-color: var(--dark-gray);
   padding: 0.5rem 0.5rem;
-  border-bottom: 2px solid var(--light-gray-2);
   font-family: Inter;
   border-radius: 4px;
 }

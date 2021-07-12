@@ -36,6 +36,7 @@ export class NftDataService {
 
     // Read from zksync + parse from IPFS
     else {
+      
       let nft = await this.wallet.syncProvider.getNFT(parseInt(id));
 
       // Assume we don't know anything about it at first

@@ -14,13 +14,13 @@
   margin: 0.5rem 0.5rem;
   border-radius: 8px;
   background-color: var(--light-gray-3);
-  filter: drop-shadow(0 0.5rem 0.5rem var(--light-gray-3));
+  filter: drop-shadow(0 0.5rem 0.5rem var(--gray-1));
   word-wrap: break-word;
   border: 2px solid var(--light-gray-2);
   cursor: pointer;
 }
 .nft-item:hover {
-  filter: drop-shadow(0 0.5rem 0.5rem var(--light-gray-2));
+  filter: drop-shadow(0 0.5rem 0.5rem var(--gray));
 }
 
 .nft-name {
